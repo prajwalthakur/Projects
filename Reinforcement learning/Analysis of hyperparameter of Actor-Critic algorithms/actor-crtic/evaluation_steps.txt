@@ -1,0 +1,32 @@
+
+1.pip install -e .
+
+#following command can be run from actor_critic/scripts folder
+#ntu= number of target update per agent update 
+#ngsptu=number of critic update per target update 
+
+
+2.a>python run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name 1_1 -ntu 1 -ngsptu 1
+
+
+#
+2.b>python run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name 10_10 -ntu 10 -ngsptu 10
+
+#
+2.c>python run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name 1_100 -ntu 1 -ngsptu 100
+
+#
+2.d>python run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name 100_1 -ntu 100 -ngsptu 10 -gpu
+
+
+# to run on HalfCheetah evironment
+3.a>python run_hw3_actor_critic.py --env_name HalfCheetah-v2 --ep_len 150 --discount 0.90 --scalar_log_freq 1 -n 150 -l 2 -s 32 -b 30000 -eb 1500 -lr 0.02 --exp_name 10_10 -ntu 10 -ngsptu 10 --video_log_freq 20 -gpu
+
+
+
+4) Visualize saved tensorboard event file:
+
+$ cd cs285/data/<your_log_dir>
+$ tensorboard --logdir .
+
+Then, navigate to shown url to see scalar summaries as plots (in 'scalar' tab), as well as videos (in 'images' tab)
