@@ -1,4 +1,11 @@
-**Model free Policy Iteration to DQN**
+     
+
+
+![](.//media/dqn_ping.gif?style=centerme)
+Green player is trained on DQN network 
+![](.//media/dqn_ping.png?style=centerme)
+Average return on training set 
+<div allign="center"> <p> Model free Policy Iteration to DQN</p></div>
 
 ![](.//media/image1.png)
 
@@ -93,12 +100,4 @@ To modify the DQN one way to use the current and target networks:
 
 ![](.//media/image15.png)
 
-![](.//media/image16.png)
 
-![](.//media/image17.png)
-
-In general when there is linear function estimator function to estimate
-the Value function the stochastic gradient desecent with TD(0) converge,
-but when we move towards the non linear function approximation with
-TD(0) Bootstrap this method does not converge theoritically as well as
-in practice.
