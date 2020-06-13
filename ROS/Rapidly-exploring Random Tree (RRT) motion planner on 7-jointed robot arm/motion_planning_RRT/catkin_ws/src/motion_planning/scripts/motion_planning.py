@@ -300,7 +300,7 @@ class MoveArm(object):
         maximum_time_secs = 15
         begin = rospy.get_rostime().secs
         now = rospy.get_rostime().secs
-        # Replace this with your code
+        # Replace this with your own planner code
         #joint_states=[]
         q_list = []
         d={}
