@@ -6,6 +6,9 @@ Average return on training set
 
 ![](.//media/image1.png)
 
+![](.//media/DDQN.gif?style=centerme)
+Lander is trained on DDQN network
+
 graph of train\_avg\_return
 
 DQN trails with random seed on lander environment (observe high variance
