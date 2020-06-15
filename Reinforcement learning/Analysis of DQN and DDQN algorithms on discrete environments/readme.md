@@ -1,12 +1,33 @@
-**Model free Policy Iteration to DQN**
+﻿![](.//media/dqn_ping.gif?style=centerme)
+Green player is trained on DQN network 
+![](.//media/dqn_ping.png?style=centerme)
+Average return on training set 
+<div allign="center"> <p> Model free Policy Iteration to DQN</p></div>
 
 ![](.//media/image1.png)
+
+graph of train\_avg\_return
+
+DQN trails with random seed on lander environment (observe high variance
+between graphs)
+
+![](.//media/image2.png)graph of train\_avg\_return
+
+DDQN trails with random seed on lander environment (observe low variance
+between graphs)
+
+![](.//media/image3.png) graph of train\_avg\_return compairing DQN VS
+DDQN
+
+**Model free Policy Iteration to DQN**
+
+![](.//media/image4.png)
 
 Example of a very model free Policy-Iteration Algorithm:
 
 SARSA ALGORITHM:
 
-![](.//media/image2.png)
+![](.//media/image5.png)
 
 SARSA is ON policy learning , estimates the value of current behavior
 policy and then updates the policy trying to estimate.
@@ -21,13 +42,13 @@ Can we omit the Policy improvement step? YES
 
 **<span class="underline">Q-LEARNING</span>**
 
-![](.//media/image3.png)
-
-![](.//media/image4.png)
-
-![](.//media/image5.png)
-
 ![](.//media/image6.png)
+
+![](.//media/image7.png)
+
+![](.//media/image9.png)
+
+![](.//media/image10.png)
 
 Essence : Updating the Q values in the direction of best possible next Q
 values
@@ -35,15 +56,15 @@ values
 Value Iteration-\>Fitted Value Iteration -\>Fitted Q Value Iteration(
 for unkown dynamics)
 
-![](.//media/image7.png)
-
-![](.//media/image8.png)
-
-![](.//media/image9.png)
-
-![](.//media/image10.png)
-
 ![](.//media/image11.png)
+
+![](.//media/image12.png)
+
+![](.//media/image13.png)
+
+![](.//media/image14.png)
+
+![](.//media/image15.png)
 
 Fitted Q learning is off policy learning , where data can be come from
 any policy and the final policy that we are trying to learn is arg max
@@ -52,7 +73,7 @@ policy .
 **Q-learning** which is an online policy :is a special case of Fitted-Q
 iteration where K=1
 
-![](.//media/image12.png)
+![](.//media/image16.png)
 
 This Q learning algorithm does not converge in practice , there is two
 problem with this
@@ -69,7 +90,7 @@ algorithm consist of above changes:
 
 DEEP Q- LEARNING ALGORITHM (DQN):
 
-![](.//media/image13.png)
+![](.//media/image17.png)
 
 Double DEEP Q-LEARNING ALGORITHM:
 
@@ -89,16 +110,6 @@ performs poorly due to its overestimation.
 
 To modify the DQN one way to use the current and target networks:
 
-![](.//media/image14.png)
+![](.//media/image18.png)
 
-![](.//media/image15.png)
-
-![](.//media/image16.png)
-
-![](.//media/image17.png)
-
-In general when there is linear function estimator function to estimate
-the Value function the stochastic gradient desecent with TD(0) converge,
-but when we move towards the non linear function approximation with
-TD(0) Bootstrap this method does not converge theoritically as well as
-in practice.
+![](.//media/image19.png)
