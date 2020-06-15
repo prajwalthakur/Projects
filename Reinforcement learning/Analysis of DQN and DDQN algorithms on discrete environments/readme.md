@@ -1,8 +1,9 @@
 ![](.//media/dqn_ping.gif?style=centerme)
 Green player is trained on DQN network 
 ![](.//media/dqn_ping.png?style=centerme)
-Average return on training set 
+Average return on training set trained on DQN NETWORK
 **DDQN NETWORK**
+
 ![](.//media/DDQN.gif?style=centerme)
 Lander is trained on DDQN network
 
