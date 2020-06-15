@@ -1,4 +1,5 @@
 ﻿![](.//media/dqn_ping.gif?style=centerme)
+![](.//media/dqn_ping.gif?style=centerme)
 Green player is trained on DQN network 
 ![](.//media/dqn_ping.png?style=centerme)
 Average return on training set 
@@ -110,6 +111,14 @@ performs poorly due to its overestimation.
 
 To modify the DQN one way to use the current and target networks:
 
+<<<<<<< HEAD
 ![](.//media/image18.png)
 
 ![](.//media/image19.png)
+=======
+![](.//media/image14.png)
+
+![](.//media/image15.png)
+
+
+>>>>>>> a0dceb5af443f1fdb87d6c5bee4f5224696ab948
