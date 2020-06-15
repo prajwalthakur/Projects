@@ -1,6 +1,3 @@
-     
-
-
 ![](.//media/dqn_ping.gif?style=centerme)
 Green player is trained on DQN network 
 ![](.//media/dqn_ping.png?style=centerme)
