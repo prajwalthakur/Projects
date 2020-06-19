@@ -9,15 +9,15 @@ import os
 import sys
 from gym import wrappers
 
-from cs285.infrastructure.utils import *
-from cs285.infrastructure.tf_utils import create_tf_session
-from cs285.infrastructure.logger import Logger
+from mbl.infrastructure.utils import *
+from mbl.infrastructure.tf_utils import create_tf_session
+from mbl.infrastructure.logger import Logger
 
 #register all of our envs
-import cs285.envs
+import mbl.envs
 
-from cs285.agents.dqn_agent import DQNAgent
-from cs285.infrastructure.dqn_utils import get_wrapper_by_name
+from mbl.agents.dqn_agent import DQNAgent
+from mbl.infrastructure.dqn_utils import get_wrapper_by_name
 
 # how many rollouts to save as videos to tensorboard
 MAX_NVIDEO = 2
@@ -57,7 +57,7 @@ class RL_Trainer(object):
         self.env.seed(seed)
 
         # import plotting (locally if 'obstacles' env)
-        if not (self.params['env_name'] == 'obstacles-cs285-v0'):
+        if not (self.params['env_name'] == 'obstacles-mbl-v0'):
             import matplotlib
             matplotlib.use('Agg')
 
@@ -298,11 +298,13 @@ class RL_Trainer(object):
         import matplotlib.pyplot as plt
         self.fig = plt.figure()
 
-        # sample actions
+        # sample random actions
         action_sequence = self.agent.actor.sample_action_sequences(num_sequences=1, horizon=10) #20 reacher
         action_sequence = action_sequence[0]
 
         # calculate and log model prediction error
+        #mpe is mean prediction error between 
+        # state obtained by executing  random actions sequence  VS state obtained from state prediction on model   
         mpe, true_states, pred_states = calculate_mean_prediction_error(self.env, action_sequence, self.agent.dyn_models, self.agent.actor.data_statistics)
         assert self.params['agent_params']['ob_dim'] == true_states.shape[1] == pred_states.shape[1]
         ob_dim = self.params['agent_params']['ob_dim']

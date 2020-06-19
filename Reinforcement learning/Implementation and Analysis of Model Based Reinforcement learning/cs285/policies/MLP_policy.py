@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 from .base_policy import BasePolicy
-from cs285.infrastructure.tf_utils import build_mlp
+from mbl.infrastructure.tf_utils import build_mlp
 import tensorflow_probability as tfp
 
 class MLPPolicy(BasePolicy):

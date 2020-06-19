@@ -1,6 +1,6 @@
 import numpy as np
 
-from cs285.infrastructure.utils import *
+from mbl.infrastructure.utils import *
 
 class ReplayBuffer(object):
 

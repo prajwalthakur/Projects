@@ -1,8 +1,8 @@
 import os
 import time
 
-from cs285.infrastructure.rl_trainer import RL_Trainer
-from cs285.agents.mb_agent import MBAgent
+from mbl.infrastructure.rl_trainer import RL_Trainer
+from mbl.agents.mb_agent import MBAgent
 
 
 class MB_Trainer(object):
@@ -54,7 +54,7 @@ def main():
 
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--env_name', type=str) #reacher-cs285-v0, ant-cs285-v0, cheetah-cs285-v0, obstacles-cs285-v0
+    parser.add_argument('--env_name', type=str) #reacher-mbl-v0, ant-mbl-v0, cheetah-mbl-v0, obstacles-mbl-v0
     parser.add_argument('--ep_len', type=int, default=200)
     parser.add_argument('--exp_name', type=str, default='todo')
     parser.add_argument('--n_iter', '-n', type=int, default=20) #number of (dagger) iterations
@@ -86,11 +86,11 @@ def main():
     params = vars(args)
 
     # HARDCODE EPISODE LENGTHS FOR THE ENVS USED IN THIS MB ASSIGNMENT
-    if params['env_name']=='reacher-cs285-v0':
+    if params['env_name']=='reacher-mbl-v0':
         params['ep_len']=200
-    if params['env_name']=='cheetah-cs285-v0':
+    if params['env_name']=='cheetah-mbl-v0':
         params['ep_len']=500
-    if params['env_name']=='obstacles-cs285-v0':
+    if params['env_name']=='obstacles-mbl-v0':
         params['ep_len']=100
 
     ##################################

@@ -2,8 +2,8 @@
 import tensorflow as tf
 
 from .base_model import BaseModel
-from cs285.infrastructure.utils import normalize, unnormalize
-from cs285.infrastructure.tf_utils import build_mlp
+from mbl.infrastructure.utils import normalize, unnormalize
+from mbl.infrastructure.tf_utils import build_mlp
 
 
 class FFModel(BaseModel):

@@ -1,8 +1,8 @@
 from .base_agent import BaseAgent
-from cs285.models.ff_model import FFModel
-from cs285.policies.MPC_policy import MPCPolicy
-from cs285.infrastructure.replay_buffer import ReplayBuffer
-from cs285.infrastructure.utils import *
+from mbl.models.ff_model import FFModel
+from mbl.policies.MPC_policy import MPCPolicy
+from mbl.infrastructure.replay_buffer import ReplayBuffer
+from mbl.infrastructure.utils import *
 import pdb
 
 
