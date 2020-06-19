@@ -1,11 +1,14 @@
-﻿**MODEL BASED REINFORCEMENT LEARNING**
+**MODEL BASED REINFORCEMENT LEARNING**
 
 **With On-Policy Data Collection and Ensemble Bootstrapping**
 
 ![](.//media/image1.gif)
-After 1 iteration
-![](.//media/itr18.gif)
-After 18 iteration
+
+After 0<sup>th</sup> iteration
+
+![](.//media/image2.gif)
+
+After 18<sup>th</sup> iteration
 
 Model Based Reinforcement learning (MBRL) consists primarily of two
 aspects: (1) learning a dynamics model and (2)using the learned dynamics
@@ -15,7 +18,7 @@ maximize a reward function).
 (\*In this work, we assume access to the underlying reward function,
 which we use for planning actions under the learned model.)
 
-1\>Learning Dynamic Model
+1\>Learning Dynamics Model
 
 Instead of learning next state we would learn the change in state
 instead :
@@ -59,9 +62,12 @@ sequence” which would maximize the return
 
 ![](.//media/image8.png)
 
-![](.//media/image9.png)General Model Based Reinforcement learning
-algorithm with on policy data collection something similar to DAGGER in
-imitation learning;
+General Model Based
+
+Reinforcement learning algorithm with on policy data collection
+something similar to DAGGER in imitation learning;
+
+![](.//media/image9.png)
 
 MBRL algorithm with Random Shooting method for planning:
 
@@ -71,16 +77,51 @@ MBRL algorithm with Random Shooting method for planning:
 
 ![](.//media/image11.png)
 
-1.Same as above except for some fixed iteration (max\_iter)
+1.Same as above except for some fixed iteration (max\_iter; epochs)
 
-2.not stochastic gradient descent but mini batch (with
-train\_batch\_size)
+2.Instead of stochastic gradient descent use mini batch gradient descent
+(with train\_batch\_size)
 
 3.number of gradient steps to optimize in this work is also fixed (
 num\_agent\_train\_steps\_per\_iter
 
 )
 
+4\.**Ensemble learning: train multiple feed forward neural networks
+(ff\_model) for model prediction to minimize the loss : Idea is that
+multiple neural networks with different weights and trained on different
+data sets will produce the more robust and more informed choices in
+terms of choosing actions**
+
+5.select the action using **MPC POLICY and Random shooting method **
+
+**5.a\>**generate “n” sequence of **<span class="underline">random
+action</span>** of some steps (mpc\_horizon) we are currently hoping
+that among this “n” sequence of random action , one sequence will
+produce maximum reward.
+
+5**.b\> Predict** the arrived states after taking each action in a
+sequence using ff\_model, and calculate the reward as well of being in
+that state (using file in envs folder)
+
+Calculate the total reward obtained from that sequence ; we will have
+“n” such rewards
+
+**5.c calculate mean\_across\_ensembles** and then choose the sequence
+having maximum reward , and from the sequence choose the first action to
+actually take (MPC planning)
+
+**6.**execute this action record the next state and reward obtained**:
+If our model prediction neural net is correct then generated next state
+will be according to the ff\_model and thus will generate the maximum
+REWARD.**
+
 \*eqn2=Loss function as defined above
 
 \*eqn4 same as eqn6
+
+**RESULT of variation of hyperparameters:**
+
+![](.//media/image12.png)
+
+![](.//media/image13.png)
