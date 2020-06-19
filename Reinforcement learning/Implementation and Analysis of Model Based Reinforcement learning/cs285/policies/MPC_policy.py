@@ -32,7 +32,7 @@ class MPCPolicy(BasePolicy):
         self.high = self.ac_space.high
 
     def sample_action_sequences(self, num_sequences, horizon):
-        # TODO(Q1) uniformly sample trajectories and return an array of
+        # (Q1) uniformly sample trajectories and return an array of
         # dimensions (num_sequences, horizon, self.ac_dim)
         random_action_sequences=np.random.uniform(low=self.low,high=self.high,size=(num_sequences,horizon,self.ac_dim))
         return random_action_sequences
@@ -51,7 +51,7 @@ class MPCPolicy(BasePolicy):
 
         for model in self.dyn_models:
             #pass
-            # TODO(Q2)
+            # (Q2)
             # for each candidate action sequence, predict a sequence of
             # states for each dynamics model in your ensemble
             if len(obs.shape)>1:
@@ -73,10 +73,10 @@ class MPCPolicy(BasePolicy):
 
         # calculate mean_across_ensembles(predicted rewards).
         # the matrix dimensions should change as follows: [ens,N] --> N
-        predicted_rewards = np.mean(np.array(predicted_rewards_per_ens),axis=0)#None # TODO(Q2)
+        predicted_rewards = np.mean(np.array(predicted_rewards_per_ens),axis=0)#None # (Q2)
 
         # pick the action sequence and return the 1st element of that sequence
-        best_index = np.argmax(predicted_rewards)#None #TODO(Q2)
-        best_action_sequence = candidate_action_sequences[best_index,:,:]#None #TODO(Q2)
-        action_to_take = best_action_sequence[0]#None # TODO(Q2)
+        best_index = np.argmax(predicted_rewards)#None #(Q2)
+        best_action_sequence = candidate_action_sequences[best_index,:,:]#None #(Q2)
+        action_to_take = best_action_sequence[0]#None # (Q2)
         return action_to_take[None] # the None is for matching expected dimensions

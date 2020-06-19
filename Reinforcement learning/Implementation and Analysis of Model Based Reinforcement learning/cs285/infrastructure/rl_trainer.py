@@ -165,7 +165,7 @@ class RL_Trainer(object):
                 # perform logging
                 print('\nBeginning logging procedure...')
 
-                self.perform_logging(itr, paths, eval_policy, train_video_paths, all_losses)
+                self.perform_logging(itr, paths, eval_policy, train_video_paths, all_losses) #eval_policy=collect_policy
 
 
                 # save policy
@@ -178,15 +178,19 @@ class RL_Trainer(object):
 
     ####################################
     ####################################
+    def do_relabel_with_expert(self, expert_policy, paths):
+        
+        pass
+
+
 
     def collect_training_trajectories(self, itr, load_initial_expertdata, collect_policy, batch_size):
-        # TODO: GETTHIS from HW1
         if itr==0 and load_initial_expertdata!=None:
             print(load_initial_expertdata)
             with open(load_initial_expertdata, "rb") as f:
                 loaded_paths = pickle.load(f)
             return loaded_paths, 0, None
-        # TODO collect data to be used for training
+        #  collect data to be used for training
         # 1: use sample_trajectories from utils
         # 2: you want each of these collected rollouts to be of length self.params['ep_len']
         print("\nCollecting data to be used for training...")
@@ -197,7 +201,7 @@ class RL_Trainer(object):
         train_video_paths = None
         if self.logvideo:
             print('\nCollecting train rollouts to be used for saving videos...')
-            ## TODO look in utils and implement sample_n_trajectories
+            ##  look in utils and implement sample_n_trajectories
             train_video_paths = sample_n_trajectories(self.env, collect_policy, MAX_NVIDEO, MAX_VIDEO_LEN, True)
 
         return paths, envsteps_this_batch, train_video_paths
@@ -212,12 +216,12 @@ class RL_Trainer(object):
         all_loss=[]
         for _ in range(self.params['num_agent_train_steps_per_iter']):
 
-            # TODO sample some data from the data buffer
+            #  sample some data from the data buffer
             # 1: use the agent's sample function
             # 2: how much data = self.params['train_batch_size']
             ob_batch, ac_batch, re_batch, next_ob_batch, terminal_batch = self.agent.sample(self.params['train_batch_size'])
 
-            # TODO use the sampled data for training
+            #  use the sampled data for training
             # : use the agent's train function
             # : print or plot the loss for debugging!
             loss = self.agent.train(ob_batch, ac_batch, re_batch, next_ob_batch, terminal_batch)

@@ -3,9 +3,9 @@
 **With On-Policy Data Collection and Ensemble Bootstrapping**
 
 ![](.//media/image1.gif)
+After 1 iteration
 ![](.//media/itr18.gif)
-
-After 1 iteration After 18 iteration
+After 18 iteration
 
 Model Based Reinforcement learning (MBRL) consists primarily of two
 aspects: (1) learning a dynamics model and (2)using the learned dynamics

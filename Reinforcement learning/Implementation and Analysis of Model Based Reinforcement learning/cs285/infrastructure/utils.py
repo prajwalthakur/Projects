@@ -19,11 +19,11 @@ def calculate_mean_prediction_error(env, action_sequence, models, data_statistic
     for ac in action_sequence:
         pred_states.append(ob)
         action = np.expand_dims(ac,0)
-        ob = model.get_prediction(ob, action, data_statistics)# TODO(Q1) Get predicted next state using the model
+        ob = model.get_prediction(ob, action, data_statistics)# (Q1) Get predicted next state using the model
     pred_states = np.squeeze(pred_states)
 
     # Calculate the mean prediction error here
-    mpe = mean_squared_error(true_states, pred_states) # TODO(Q1)
+    mpe = mean_squared_error(true_states, pred_states) # (Q1)
 
     return mpe, true_states, pred_states
 
@@ -57,11 +57,11 @@ def mean_squared_error(a, b):
 
 def sample_trajectory(env, policy, max_path_length, render=False, render_mode=('rgb_array')):
 
-    # TODO: GETTHIS from HW2
+    # : GETTHIS from HW2
 
     # initialize env for the beginning of a new rollout
     ob = env.reset()
-    # TODO: GETTHIS from HW1
+    # : GETTHIS from HW1
 
     # init vars
     obs, acs, rewards, next_obs, terminals, image_obs = [], [], [], [], [], []
@@ -84,7 +84,7 @@ def sample_trajectory(env, policy, max_path_length, render=False, render_mode=('
 
         # use the most recent ob to decide what to do
         obs.append(ob)
-        ac = policy.get_action(ob) # TODO: GETTHIS from HW1
+        ac = policy.get_action(ob) # : GETTHIS from HW1
         #print("ac",ac)
         ac = ac[0]
         acs.append(ac)
@@ -118,7 +118,7 @@ def sample_trajectory(env, policy, max_path_length, render=False, render_mode=('
 
 def sample_trajectories(env, policy, min_timesteps_per_batch, max_path_length, render=False, render_mode=('rgb_array')):
 
-    # TODO: GETTHIS from HW1 or HW2
+    # : GETTHIS from HW1 or HW2
 
     #this would run for n_itr=200 ; total dataset = 64*200 samples
     #MIN_Timesteps_per_batch=I should say this maximum steps that need to be taken for one batch , max path length is 
