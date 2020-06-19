@@ -1,12 +1,16 @@
-﻿﻿![](.//media/dqn_ping.gif?style=centerme)
 ![](.//media/dqn_ping.gif?style=centerme)
 Green player is trained on DQN network 
 ![](.//media/dqn_ping.png?style=centerme)
-Average return on training set 
-<div allign="center"> <p> Model free Policy Iteration to DQN</p></div>
+
+</br>Average return on training set trained on DQN NETWORK</br>
+</br>
+</br>
+**DDQN NETWORK**
+
+![](.//media/DDQN.gif?style=centerme)
+Lander is trained on DDQN network
 
 ![](.//media/image1.png)
-
 graph of train\_avg\_return
 
 DQN trails with random seed on lander environment (observe high variance
