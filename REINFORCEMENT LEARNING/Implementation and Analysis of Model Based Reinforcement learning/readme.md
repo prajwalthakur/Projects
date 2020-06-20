@@ -125,3 +125,5 @@ REWARD.**
 ![](.//media/image12.png)
 
 ![](.//media/image13.png)
+![](.//media/43.png)
+here ensembles mean the number of feed forward neural net trained for model prediction

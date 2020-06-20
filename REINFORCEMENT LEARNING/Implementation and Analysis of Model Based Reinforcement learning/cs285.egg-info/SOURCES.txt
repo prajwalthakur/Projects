@@ -1,9 +1,0 @@
-README.md
-setup.py
-cs285.egg-info/PKG-INFO
-cs285.egg-info/SOURCES.txt
-cs285.egg-info/dependency_links.txt
-cs285.egg-info/movie2.gif
-cs285.egg-info/movie3.gif
-cs285.egg-info/movie4.gif
-cs285.egg-info/top_level.txt
