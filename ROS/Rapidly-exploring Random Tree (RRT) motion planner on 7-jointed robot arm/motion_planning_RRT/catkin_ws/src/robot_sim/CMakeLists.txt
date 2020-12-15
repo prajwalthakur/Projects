@@ -33,7 +33,7 @@ add_library(robot_sim
   src/trajectory_executer.cpp
 )
 
-link_directories(/opt/ros/kinetic/lib/)
+link_directories(/opt/ros/melodic/lib/)
 add_executable(robot_sim_bringup src/robot_sim_bringup.cpp)
 target_link_libraries(robot_sim_bringup ${catkin_LIBRARIES} robot_sim urdf)
 
